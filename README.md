@@ -1,8 +1,40 @@
-# React + Vite
+# FoodBridge: Connecting Plates to People
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
+**FoodBridge** is a community-driven platform designed to reduce food waste and foster sharing by connecting individuals with surplus food to those in need. This application simplifies the process of donating, requesting, and managing food items securely and efficiently.
 
-Currently, two official plugins are available:
+## Live URL
+[Visit FoodBridge]()
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
+- **Donate Food**: Share surplus food by providing detailed information, including pickup location and expiration date.
+- **View Available Food**: Browse food items, with sorting by expiration date and search functionality.
+- **Request Food**: Easily request available food items and track your requests in a personalized dashboard.
+- **Manage Donations**: Update or delete food donations through an intuitive interface.
+- **Secure Authentication**: Login with email/password or social login (Google/GitHub).
+- **Responsive Design**: Seamlessly accessible on mobile, tablet, and desktop devices.
+- **Token-Based Security**: Secure private routes with JWT authentication.
+
+## Technologies and npm Packages
+### Frontend:
+- React.js
+- Tailwind CSS
+- Daisyui
+- React Router DOM
+- Axios
+
+### Backend:
+- Node.js
+- Express.js
+- MongoDB
+- Firebase Authentication
+- JWT (JSON Web Token)
+
+### Other npm Packages:
+- React Toastify
+- Sweet Alert 2
+- TanStack Query
+- dotenv
+- cors
+
+
