@@ -87,7 +87,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <div className="navbar-start flex items-center">
                     <Link to="/" className="text-xl md:text-3xl font-bold text-blue-600 ml-2">
-                        Food Cycle BD
+                        Food Bridge
                     </Link>
                 </div>
 
