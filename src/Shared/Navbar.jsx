@@ -85,10 +85,9 @@ const Navbar = () => {
                 </div>
 
                 {/* Logo */}
-                <div className="navbar-start flex items-center">
-                    <Link to="/" className="text-xl md:text-3xl font-bold text-blue-600 ml-2">
-                        Food Bridge
-                    </Link>
+                <div className="navbar-start ">
+                    <img className="w-24 md:w-48 " src="https://i.ibb.co.com/FhKgmP7/food-bridge-logo-simple.webp" alt="" />
+                    
                 </div>
 
                 {/* Navigation Links */}

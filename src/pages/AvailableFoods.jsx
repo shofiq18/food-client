@@ -56,7 +56,7 @@ const AvailableFoods = () => {
 
     return (
         <div className="container mx-auto p-6">
-            <h1 className="text-5xl text-center border-b pt-6  font-bold mb-10">Available Foods</h1>
+            <h1 className=" text-2xl md:text-3xl lg:text-4xl text-center border-b pt-6  font-bold mb-10">Available Foods</h1>
 
             {/* Search and Sort Controls */}
             <div className="flex flex-col md:flex-row justify-between items-center mb-6 space-y-4 md:space-y-0">
