@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const FeaturedFoods = () => {
     const [foods, setFoods] = useState([]);
@@ -47,9 +47,9 @@ const FeaturedFoods = () => {
                             Expiration Date: {new Date(food.expirationDate).toLocaleString()}
                         </p>
                         <p className="text-gray-600">Donator: {food.donator.name}</p>
-                        <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                                View Details
-                            </button>
+                        <Link to={`/details/${food._id}`}><button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                            View Details
+                        </button></Link>
                     </div>
                 ))}
             </div>
