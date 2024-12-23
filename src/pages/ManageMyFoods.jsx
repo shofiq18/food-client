@@ -85,15 +85,15 @@ const ManageMyFoods = () => {
     }
 
     return (
-        <div className="container mx-auto p-2 md:p-4 lg:p-6">
-            <h1 className="text-2xl font-bold mb-6">Manage My Foods</h1>
+        <div className="container py-12 mx-auto pr-1  md:p-4 lg:pb-52 lg:pt-12">
+            <h1 className="text-2xl text-center md:text-start font-bold mb-6">Manage My Foods</h1>
 
             {foods.length > 0 ? (
                 <div className="overflow-x-auto ">
                     <table className="table-fixed w-full border-collapse border border-gray-200">
                         <thead>
                             <tr className="bg-gray-100 text-sm">
-                                <th className="border border-gray-200 px-2 py-1 w-1/4">Food Name</th>
+                                <th className="border border-gray-200 px-2 py-3 w-1/4">Food Name</th>
                                 <th className="border border-gray-200 px-2 py-1 w-1/6">Quantity</th>
                                 <th className="border border-gray-200 px-2 py-1 w-1/3">Pickup Location</th>
                                 <th className="border border-gray-200 px-2 py-1 w-1/4">Expiration Date</th>
@@ -103,10 +103,10 @@ const ManageMyFoods = () => {
                         <tbody>
                             {foods.map((food) => (
                                 <tr key={food._id} className="text-center text-sm">
-                                    <td className="border border-gray-200 px-2 py-1 break-words">
+                                    <td className="border border-gray-200 px-1 py-1 break-words">
                                         {food.foodName}
                                     </td>
-                                    <td className="border border-gray-200 px-2 py-1">
+                                    <td className="border border-gray-200 px-1 py-1">
                                         {food.quantity}
                                     </td>
                                     <td className="border border-gray-200 px-2 py-1 break-words">
@@ -115,16 +115,16 @@ const ManageMyFoods = () => {
                                     <td className="border border-gray-200 px-2 py-1">
                                         {new Date(food.expirationDate).toLocaleDateString()}
                                     </td>
-                                    <td className="border border-gray-200 px-2 py-1 space-x-1">
+                                    <td className="border border-gray-200    px-1 md:py-3 space-y-2 space-x-3">
                                         <button
                                             onClick={() => openUpdateModal(food)}
-                                            className="bg-blue-500 text-white text-xs px-3 py-1 rounded hover:bg-blue-600"
+                                            className="bg-blue-500  text-white text-xs px-1 py-1 md:px-4 md:py-3 rounded hover:bg-blue-600"
                                         >
                                             Update
                                         </button>
                                         <button
                                             onClick={() => handleDelete(food._id)}
-                                            className="bg-red-500 text-white text-xs px-3 py-1 rounded hover:bg-red-600"
+                                            className="bg-red-500  text-white text-xs px-1 py-1  md:px-4 md:py-3 rounded hover:bg-red-600"
                                         >
                                             Delete
                                         </button>
