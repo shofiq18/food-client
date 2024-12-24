@@ -1,30 +1,24 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const FeaturedFoods = () => {
-    const [foods, setFoods] = useState([]);
-    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
     // Fetch Featured Foods from the backend
-    const fetchFeaturedFoods = async () => {
-        try {
+    
+        const {data: foods , isLoading, isError, error } = useQuery({ queryKey: ['foods'], queryFn: async () => {
             const response = await fetch("http://localhost:5000/featured-foods");
             const data = await response.json();
-            setFoods(data);
-        } catch (error) {
-            console.error("Error fetching featured foods:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
+            return data
+        } })
+       
+    if (isLoading) {
+        return <Loading></Loading>;
+    }
 
-    useEffect(() => {
-        fetchFeaturedFoods();
-    }, []);
-
-    if (loading) {
-        return <div className="text-center py-10">Loading featured foods...</div>;
+    if (isError) {
+        return <div className="text-center text-red-500">Error: {error.message}</div>;
     }
 
     return (
