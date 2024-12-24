@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -65,7 +63,9 @@ const AvailableFoods = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className=" text-2xl md:text-3xl lg:text-4xl text-center border-b pt-6  font-bold mb-10">Available Foods</h1>
+      <h1 className="text-2xl md:text-3xl lg:text-4xl text-center border-b pt-6 font-bold mb-10">
+        Available Foods
+      </h1>
 
       {/* Search and Sort Controls */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 space-y-4 md:space-y-0">
@@ -79,7 +79,11 @@ const AvailableFoods = () => {
         />
 
         {/* Sort Dropdown */}
-        <select value={sortOrder} onChange={handleSort} className="border p-2 rounded">
+        <select
+          value={sortOrder}
+          onChange={handleSort}
+          className="border p-2 rounded"
+        >
           <option value="asc">Sort by Expiration (Ascending)</option>
           <option value="desc">Sort by Expiration (Descending)</option>
         </select>
@@ -91,24 +95,39 @@ const AvailableFoods = () => {
       </div>
 
       {/* Food Cards */}
-      <div className={`grid grid-cols-1 md:grid-cols-${gridColumns} lg:grid-cols-${gridColumns} gap-6`}>
+      <div
+        className={`grid grid-cols-1 md:grid-cols-${gridColumns} lg:grid-cols-${gridColumns} gap-6`}
+      >
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => (
-            <div key={food._id} className="border rounded-lg shadow p-4">
+            <div
+              key={food._id}
+              className="border border-gray-200 rounded-lg shadow-lg p-6 bg-gradient-to-br from-teal-50 to-white hover:shadow-2xl hover:-translate-y-2 transition-transform duration-300"
+            >
               <img
                 src={food.imageUrl}
                 alt={food.foodName}
-                className="w-full h-48 object-cover rounded-md mb-4"
+                className="w-full h-48 object-cover rounded-md mb-4 border border-gray-300"
               />
-              <h2 className="text-xl font-semibold">{food.foodName}</h2>
-              <p className="text-gray-600">Quantity: {food.quantity}</p>
-              <p className="text-gray-600">Pickup Location: {food.pickupLocation}</p>
-              <p className="text-gray-600">
-                Expiration Date: {new Date(food.expirationDate).toLocaleString()}
+              <h2 className="text-2xl font-bold text-teal-600 mb-2">
+                {food.foodName}
+              </h2>
+              <p className="text-gray-700 text-sm mb-1">
+                <span className="font-semibold">Quantity:</span> {food.quantity}
               </p>
-              <p className="text-gray-600">Donator: {food.donator.name}</p>
+              <p className="text-gray-700 text-sm mb-1">
+                <span className="font-semibold">Pickup Location:</span>{" "}
+                {food.pickupLocation}
+              </p>
+              <p className="text-gray-700 text-sm mb-1">
+                <span className="font-semibold">Expiration Date:</span>{" "}
+                {new Date(food.expirationDate).toLocaleString()}
+              </p>
+              <p className="text-gray-700 text-sm mb-4">
+                <span className="font-semibold">Donator:</span> {food.donator.name}
+              </p>
               <Link to={`/details/${food._id}`}>
-                <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                <button className="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white font-semibold px-4 py-2 rounded-md hover:from-teal-600 hover:to-green-600 transition duration-300">
                   View Details
                 </button>
               </Link>
