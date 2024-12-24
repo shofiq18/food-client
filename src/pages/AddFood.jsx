@@ -1,9 +1,13 @@
+
+
+
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 import { AuthContext } from "../context/AuthProvider";
 
 const AddFood = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
     const [formData, setFormData] = useState({
         foodName: "",
         imageUrl: "",
@@ -15,19 +19,40 @@ const AddFood = () => {
 
     const navigate = useNavigate();
 
-   
+    // Mutation for adding food
+    const addFoodMutation = useMutation({
+        mutationFn: async (foodData) => {
+            const response = await fetch("http://localhost:5000/add-food", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(foodData),
+            });
 
-   
+            if (!response.ok) {
+                throw new Error("Failed to add food. Please try again.");
+            }
+            return response.json();
+        },
+        onSuccess: () => {
+            alert("Food added successfully!");
+            navigate("/foods");
+        },
+        onError: (error) => {
+            console.error("Error:", error.message);
+            alert(error.message);
+        },
+    });
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        
         const foodData = {
             foodName: formData.foodName,
             imageUrl: formData.imageUrl,
@@ -42,35 +67,20 @@ const AddFood = () => {
             },
             status: "Available",
         };
-        console.log(foodData)
-        console.log(user, user.photoURL)
 
-        try {
-           
-            const response = await fetch("http://localhost:5000/add-food", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(foodData),
-            });
-
-            if (response.ok) {
-                alert("Food added successfully!");
-                navigate("/foods");
-            } else {
-                alert("Failed to add food. Please try again.");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("An error occurred. Please try again.");
-        }
+        // Trigger mutation
+        addFoodMutation.mutate(foodData);
     };
 
     return (
-        <div className="container max-w-5xl mx-auto mx-auto p-14">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl text-center my-10 font-bold  border-b">Add a Food Item</h1>
-            <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded shadow-md">
+        <div className="container max-w-5xl  mx-auto p-14">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl text-center my-10 font-bold border-b">
+                Add a Food Item
+            </h1>
+            <form
+                onSubmit={handleSubmit}
+                className="space-y-4 bg-white p-6 rounded shadow-md"
+            >
                 {/* Food Name */}
                 <div>
                     <label className="block font-medium mb-2">Food Name</label>
@@ -165,9 +175,12 @@ const AddFood = () => {
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded font-medium"
+                    className={`w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded font-medium ${
+                        addFoodMutation.isLoading ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
+                    disabled={addFoodMutation.isLoading}
                 >
-                    Add Food
+                    {addFoodMutation.isLoading ? "Adding Food..." : "Add Food"}
                 </button>
             </form>
         </div>

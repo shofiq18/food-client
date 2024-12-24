@@ -91,7 +91,7 @@ const AvailableFoods = () => {
       </div>
 
       {/* Food Cards */}
-      <div className={`grid grid-cols-1 sm:grid-cols-${gridColumns} lg:grid-cols-${gridColumns} gap-6`}>
+      <div className={`grid grid-cols-1 md:grid-cols-${gridColumns} lg:grid-cols-${gridColumns} gap-6`}>
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => (
             <div key={food._id} className="border rounded-lg shadow p-4">
