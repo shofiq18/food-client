@@ -1,26 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
+import useAxiosSecure from "../Shared/useAxiosSecure";
 
 const MyFoodRequest = () => {
     const { user } = useContext(AuthContext);
     const [requests, setRequests] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // Fetch My Requests
-    const fetchRequests = async () => {
-        try {
-            const response = await fetch(`http://localhost:5000/my-requests?email=${user.email}`);
-            const data = await response.json();
-            setRequests(data);
-        } catch (error) {
-            console.error("Error fetching my requests:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
+ 
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        fetchRequests();
+       axiosSecure.get(`/my-requests?email=${user.email}`)
+       .then(res => setRequests(res.data) );
+       setLoading(false);
+
     }, [user.email]);
 
     if (loading) {
