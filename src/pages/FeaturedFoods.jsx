@@ -9,7 +9,7 @@ const FeaturedFoods = () => {
     const { data: foods, isLoading, isError, error } = useQuery({
         queryKey: ["foods"],
         queryFn: async () => {
-            const response = await fetch("http://localhost:5000/featured-foods");
+            const response = await fetch("https://assignment-11-server-nine-chi.vercel.app/featured-foods");
             if (!response.ok) {
                 throw new Error("Failed to fetch featured foods");
             }

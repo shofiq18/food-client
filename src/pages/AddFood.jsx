@@ -22,7 +22,7 @@ const AddFood = () => {
     // Mutation for adding food
     const addFoodMutation = useMutation({
         mutationFn: async (foodData) => {
-            const response = await fetch("http://localhost:5000/add-food", {
+            const response = await fetch("https://assignment-11-server-nine-chi.vercel.app/add-food", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

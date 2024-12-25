@@ -7,7 +7,7 @@ const Banner = () => {
             className="relative lg:w-full h-[350px] md:h-[700px] bg-cover bg-center"
             style={{
                 backgroundImage:
-                    "url('https://i.ibb.co/23MdBrq/assorted-fruits-vegetables-table-with-bowls-grapes-apples-concept-food-photography-healthy-eating-fr.jpg')", // Replace with your banner image URL
+                    "url('https://i.ibb.co/23MdBrq/assorted-fruits-vegetables-table-with-bowls-grapes-apples-concept-food-photography-healthy-eating-fr.jpg')", 
             }}
         >
             {/* Overlay */}

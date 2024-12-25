@@ -4,7 +4,7 @@
 **FoodBridge** is a community-driven platform designed to reduce food waste and foster sharing by connecting individuals with surplus food to those in need. This application simplifies the process of donating, requesting, and managing food items securely and efficiently.
 
 ## Live URL
-[Visit FoodBridge]()
+[Visit FoodBridge](https://food-bd-31846.web.app/)
 
 ## Key Features
 - **Donate Food**: Share surplus food by providing detailed information, including pickup location and expiration date.

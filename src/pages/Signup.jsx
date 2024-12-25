@@ -14,7 +14,7 @@ const Signup = () => {
                 const user = result.user;
                 setUser(user);
                 console.log("Google sign-in successful:", user);
-                navigate("/"); // Navigate to home page
+                navigate("/"); 
             })
             .catch((error) => {
                 console.error("Error during Google sign-in:", error.message);
@@ -43,7 +43,7 @@ const Signup = () => {
             return;
         }
 
-        setError({}); // Clear previous errors
+        setError({}); 
 
         try {
             const result = await createNewUser(email, password);
@@ -56,8 +56,8 @@ const Signup = () => {
             });
 
             setUser(user);
-            e.target.reset(); // Reset the form
-            navigate("/"); // Navigate to home page
+            e.target.reset();
+            navigate("/");
         } catch (err) {
             console.error("Error during registration:", err.message);
             setError({ ...error, general: "Registration failed. Please try again." });

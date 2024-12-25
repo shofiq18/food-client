@@ -7,15 +7,15 @@ const AvailableFoods = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = useState(true);
-  const [gridColumns, setGridColumns] = useState(3); // Initial layout is 3 columns
+  const [gridColumns, setGridColumns] = useState(3); 
 
   // Fetch foods from the backend
   const fetchFoods = async () => {
     try {
-      const response = await fetch("http://localhost:5000/available-foods");
+      const response = await fetch("https://assignment-11-server-nine-chi.vercel.app/available-foods");
       const data = await response.json();
       setFoods(data);
-      setFilteredFoods(data); // Initialize filtered foods
+      setFilteredFoods(data); 
     } catch (error) {
       console.error("Error fetching foods:", error);
     } finally {
@@ -67,7 +67,7 @@ const AvailableFoods = () => {
         Available Foods
       </h1>
 
-      {/* Search and Sort Controls */}
+      
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 space-y-4 md:space-y-0">
         {/* Search Bar */}
         <input

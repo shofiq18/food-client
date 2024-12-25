@@ -10,14 +10,14 @@ const FoodDetails = () => {
     const food = useLoaderData();
     const { foodName, imageUrl, quantity, pickupLocation, expirationDate, notes, donator, status, _id } = food;
 
-    // Modal State
+    
     const [isModalOpen, setModalOpen] = useState(false);
     const [additionalNotes, setAdditionalNotes] = useState("");
 
-    // Open Modal
+
     const openModal = () => setModalOpen(true);
 
-    // Close Modal
+    
     const closeModal = () => setModalOpen(false);
 
     // Handle Request Submission
@@ -35,19 +35,19 @@ const FoodDetails = () => {
             pickupLocation,
             expirationDate,
             additionalNotes,
-            status: "requested", // Update status
+            status: "requested", 
         };
 
         try {
             // Update food status in the database
-            await fetch(`http://localhost:5000/foods/${_id}`, {
+            await fetch(`https://assignment-11-server-nine-chi.vercel.app/foods/${_id}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: "requested" }),
             });
 
             // Add to My Requests collection
-            await fetch("http://localhost:5000/my-requests", {
+            await fetch("https://assignment-11-server-nine-chi.vercel.app/my-requests", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestData),
@@ -55,7 +55,7 @@ const FoodDetails = () => {
 
             alert("Request submitted successfully!");
             closeModal();
-            navigate("/foods"); // Redirect to available foods page
+            navigate("/foods"); 
         } catch (error) {
             console.error("Error submitting request:", error);
             alert("Failed to submit request. Please try again.");
