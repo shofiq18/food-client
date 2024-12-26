@@ -167,7 +167,7 @@ const ManageMyFoods = () => {
 
                 {/* Update Modal */}
                 {isModalOpen && selectedFood && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center md:mb-96">
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center mb-28 md:mb-96">
                         <div className="bg-white p-6 rounded shadow-lg w-96 max-w-full">
                             <h2 className="text-xl font-semibold mb-4">Update Food</h2>
                             <form onSubmit={handleUpdate} className="space-y-4">

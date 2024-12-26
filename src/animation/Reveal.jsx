@@ -3,12 +3,12 @@ import { motion, useAnimation, useInView } from "framer-motion";
 
 const Reveal = ({ children }) => {
     const ref = useRef(null);
-    const isInView = useInView(ref, { threshold: 0.2 }); // Individual inView for each card
+    const isInView = useInView(ref, { threshold: 0.2 }); 
     const mainControls = useAnimation();
 
     useEffect(() => {
         if (isInView) {
-            mainControls.start("visible"); // Trigger visible when in view
+            mainControls.start("visible"); 
         }
     }, [isInView, mainControls]);
 
