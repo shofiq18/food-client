@@ -1,17 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Reveal from "../animation/Reveal";
+
 
 const Banner = () => {
     return (
-        <div
+        <Reveal>
+            <div
             className="relative lg:w-full h-[350px] md:h-[700px] bg-cover bg-center"
             style={{
                 backgroundImage:
-                    "url('https://i.ibb.co/23MdBrq/assorted-fruits-vegetables-table-with-bowls-grapes-apples-concept-food-photography-healthy-eating-fr.jpg')", 
+                    "url('https://i.ibb.co.com/Z2TsKv0/background-image-featuring-a-paper-bag-filled-with-healthy-vegan-and-vegetarian-food-including-free.jpg')", 
             }}
         >
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="absolute inset-0  bg-opacity-50"></div>
 
             {/* Content */}
             <div className="relative z-10 text-center text-white flex flex-col justify-center items-center h-full">
@@ -27,7 +30,7 @@ const Banner = () => {
                 <div className="mt-6 flex space-x-4">
                     <Link
                         to="/foods"
-                        className="bg-green-500 hover:bg-green-600 text-white px-2 md:px-6 py-3 rounded-lg font-medium"
+                        className="bg-green-600 hover:bg-green-400 text-white px-2 md:px-6 py-3 rounded-lg font-medium"
                     >
                         Explore Foods
                     </Link>
@@ -40,6 +43,7 @@ const Banner = () => {
                 </div>
             </div>
         </div>
+        </Reveal>
     );
 };
 

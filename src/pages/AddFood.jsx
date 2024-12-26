@@ -5,6 +5,8 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { AuthContext } from "../context/AuthProvider";
+import Reveal from "../animation/Reveal";
+import Swal from "sweetalert2";
 
 const AddFood = () => {
     const { user } = useContext(AuthContext);
@@ -36,7 +38,13 @@ const AddFood = () => {
             return response.json();
         },
         onSuccess: () => {
-            alert("Food added successfully!");
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Food added successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
             navigate("/foods");
         },
         onError: (error) => {
@@ -73,7 +81,8 @@ const AddFood = () => {
     };
 
     return (
-        <div className="container max-w-5xl  mx-auto p-14">
+       <Reveal>
+         <div className="container max-w-5xl  mx-auto p-14">
             <h1 className="text-2xl md:text-3xl lg:text-4xl text-center my-10 font-bold border-b">
                 Add a Food Item
             </h1>
@@ -184,6 +193,7 @@ const AddFood = () => {
                 </button>
             </form>
         </div>
+       </Reveal>
     );
 };
 

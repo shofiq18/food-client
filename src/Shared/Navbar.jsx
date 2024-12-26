@@ -4,6 +4,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../context/AuthProvider";
+import Reveal from "../animation/Reveal";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -64,7 +65,8 @@ const Navbar = () => {
     );
 
     return (
-        <div className="sticky top-0 z-50 shadow-lg bg-gradient-to-r from-teal-600 to-green-500 ">
+        <Reveal>
+            <div className="sticky top-0 z-50 shadow-lg bg-gradient-to-r from-teal-600 to-green-500 ">
             <div className="navbar lg:w-[1440px] mx-auto flex items-center  md:px-2">
                 {/* Dropdown for Mobile */}
                 <div className="dropdown lg:hidden">
@@ -157,6 +159,7 @@ const Navbar = () => {
             </div>
             <ToastContainer position="top-right" autoClose={3000} />
         </div>
+        </Reveal>
     );
 };
 

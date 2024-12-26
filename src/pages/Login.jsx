@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import Reveal from "../animation/Reveal";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const { userLogin, setUser, signInWithGoogle } = useContext(AuthContext);
@@ -32,6 +34,13 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Log in Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
                 navigate(location?.state ? location.state : "/");
             })
             .catch((err) => {
@@ -40,7 +49,8 @@ const Login = () => {
     };
 
     return (
-        <div
+       <Reveal>
+         <div
             data-aos="flip-left"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
@@ -91,7 +101,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-gray-800 text-white hover:bg-gray-700">
+                            <button className="btn bg-green-600 text-white hover:bg-gray-700">
                                 Login
                             </button>
                         </div>
@@ -100,7 +110,7 @@ const Login = () => {
                     <div className="form-control mt-4 px-8">
                         <button
                             onClick={handleGoogle}
-                            className="btn bg-gray-800 text-white hover:bg-gray-700"
+                            className="btn bg-green-600 text-white hover:bg-gray-700"
                         >
                             <span className="mr-4 text-xl">
                                 <FcGoogle />
@@ -110,13 +120,14 @@ const Login = () => {
                     </div>
                     <p className="ml-4 mt-4 text-base text-center text-gray-600">
                         Don't have an Account?{" "}
-                        <Link className="text-blue-500 border-b" to="/signup">
+                        <Link className="text-green-500 font-bold border-b" to="/signup">
                             Register
                         </Link>
                     </p>
                 </div>
             </div>
         </div>
+       </Reveal>
     );
 };
 

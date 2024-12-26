@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import useAxiosSecure from "../Shared/useAxiosSecure";
+import Reveal from "../animation/Reveal";
 
 const MyFoodRequest = () => {
     const { user } = useContext(AuthContext);
@@ -26,9 +27,11 @@ const MyFoodRequest = () => {
             <h1 className="text-2xl font-bold mb-6">My Food Requests</h1>
 
             {requests.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {requests.map((request) => (
-                        <div key={request._id} className="border rounded-lg shadow p-4">
+                       <Reveal key={request._id}>
+                         <div  className="border rounded-lg shadow p-4">
                             <img
                                 src={request.imageUrl}
                                 alt={request.foodName}
@@ -41,8 +44,10 @@ const MyFoodRequest = () => {
                             <p className="text-gray-600">Expiration Date: {new Date(request.expirationDate).toLocaleString()}</p>
                             <p className="text-gray-600">Notes: {request.additionalNotes}</p>
                         </div>
+                       </Reveal>
                     ))}
                 </div>
+                
             ) : (
                 <div className="text-center text-gray-500">You have no food requests yet.</div>
             )}

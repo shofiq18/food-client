@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Reveal from "../animation/Reveal";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
@@ -7,15 +8,17 @@ const AvailableFoods = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = useState(true);
-  const [gridColumns, setGridColumns] = useState(3); 
+  const [gridColumns, setGridColumns] = useState(3);
 
   // Fetch foods from the backend
   const fetchFoods = async () => {
     try {
-      const response = await fetch("https://assignment-11-server-nine-chi.vercel.app/available-foods");
+      const response = await fetch(
+        "https://assignment-11-server-nine-chi.vercel.app/available-foods"
+      );
       const data = await response.json();
       setFoods(data);
-      setFilteredFoods(data); 
+      setFilteredFoods(data);
     } catch (error) {
       console.error("Error fetching foods:", error);
     } finally {
@@ -67,7 +70,6 @@ const AvailableFoods = () => {
         Available Foods
       </h1>
 
-      
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 space-y-4 md:space-y-0">
         {/* Search Bar */}
         <input
@@ -100,38 +102,41 @@ const AvailableFoods = () => {
       >
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => (
-            <div
-              key={food._id}
-              className="border border-gray-200 rounded-lg shadow-lg p-6 bg-gradient-to-br from-teal-50 to-white hover:shadow-2xl hover:-translate-y-2 transition-transform duration-300"
-            >
-              <img
-                src={food.imageUrl}
-                alt={food.foodName}
-                className="w-full h-48 object-cover rounded-md mb-4 border border-gray-300"
-              />
-              <h2 className="text-2xl font-bold text-teal-600 mb-2">
-                {food.foodName}
-              </h2>
-              <p className="text-gray-700 text-sm mb-1">
-                <span className="font-semibold">Quantity:</span> {food.quantity}
-              </p>
-              <p className="text-gray-700 text-sm mb-1">
-                <span className="font-semibold">Pickup Location:</span>{" "}
-                {food.pickupLocation}
-              </p>
-              <p className="text-gray-700 text-sm mb-1">
-                <span className="font-semibold">Expiration Date:</span>{" "}
-                {new Date(food.expirationDate).toLocaleString()}
-              </p>
-              <p className="text-gray-700 text-sm mb-4">
-                <span className="font-semibold">Donator:</span> {food.donator.name}
-              </p>
-              <Link to={`/details/${food._id}`}>
-                <button className="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white font-semibold px-4 py-2 rounded-md hover:from-teal-600 hover:to-green-600 transition duration-300">
-                  View Details
-                </button>
-              </Link>
-            </div>
+            <Reveal key={food._id}>
+              <div
+                className="border border-gray-200 rounded-lg shadow-lg p-6 bg-gradient-to-br from-teal-50 to-white hover:shadow-2xl hover:-translate-y-2 transition-transform duration-300"
+              >
+                <img
+                  src={food.imageUrl}
+                  alt={food.foodName}
+                  className="w-full h-48 object-cover rounded-md mb-4 border border-gray-300"
+                />
+                <h2 className="text-2xl font-bold text-teal-600 mb-2">
+                  {food.foodName}
+                </h2>
+                <p className="text-gray-700 text-sm mb-1">
+                  <span className="font-semibold">Quantity:</span>{" "}
+                  {food.quantity}
+                </p>
+                <p className="text-gray-700 text-sm mb-1">
+                  <span className="font-semibold">Pickup Location:</span>{" "}
+                  {food.pickupLocation}
+                </p>
+                <p className="text-gray-700 text-sm mb-1">
+                  <span className="font-semibold">Expiration Date:</span>{" "}
+                  {new Date(food.expirationDate).toLocaleString()}
+                </p>
+                <p className="text-gray-700 text-sm mb-4">
+                  <span className="font-semibold">Donator:</span>{" "}
+                  {food.donator.name}
+                </p>
+                <Link to={`/details/${food._id}`}>
+                  <button className="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white font-semibold px-4 py-2 rounded-md hover:from-teal-600 hover:to-green-600 transition duration-300">
+                    View Details
+                  </button>
+                </Link>
+              </div>
+            </Reveal>
           ))
         ) : (
           <div className="col-span-full text-center text-gray-500">

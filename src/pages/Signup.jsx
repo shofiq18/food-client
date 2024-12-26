@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
+import Reveal from "../animation/Reveal";
+import Swal from "sweetalert2";
 
 const Signup = () => {
     const { createNewUser, setUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
@@ -13,7 +15,13 @@ const Signup = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                console.log("Google sign-in successful:", user);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Google sign in successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
                 navigate("/"); 
             })
             .catch((error) => {
@@ -57,6 +65,13 @@ const Signup = () => {
 
             setUser(user);
             e.target.reset();
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Register successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
             navigate("/");
         } catch (err) {
             console.error("Error during registration:", err.message);
@@ -65,7 +80,8 @@ const Signup = () => {
     };
 
     return (
-        <div>
+        <Reveal>
+            <div>
             <div
                 data-aos="flip-left"
                 data-aos-easing="ease-out-cubic"
@@ -134,7 +150,7 @@ const Signup = () => {
                                 )}
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-gray-800 text-white hover:bg-gray-700">
+                                <button className="btn bg-green-600 text-white hover:bg-gray-700">
                                     Register
                                 </button>
                             </div>
@@ -146,7 +162,7 @@ const Signup = () => {
                         <div className="form-control mt-4 px-8">
                             <button
                                 onClick={handleGoogleRegister}
-                                className="btn bg-gray-800 text-white hover:bg-gray-700"
+                                className="btn bg-green-600 text-white hover:bg-gray-700"
                             >
                                 <span className="mr-4 text-xl">
                                     <FcGoogle />
@@ -156,7 +172,7 @@ const Signup = () => {
                         </div>
                         <p className="mt-4 text-base text-center text-gray-600">
                             Already have an Account?{" "}
-                            <Link className="text-blue-500 border-b" to="/login">
+                            <Link className="text-green-500 font-bold border-b" to="/login">
                                 Login
                             </Link>
                         </p>
@@ -164,6 +180,7 @@ const Signup = () => {
                 </div>
             </div>
         </div>
+        </Reveal>
     );
 };
 

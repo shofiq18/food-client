@@ -3,6 +3,7 @@
 import React, { useContext, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
+import Swal from 'sweetalert2';
 
 const FoodDetails = () => {
     const { user } = useContext(AuthContext);
@@ -53,7 +54,13 @@ const FoodDetails = () => {
                 body: JSON.stringify(requestData),
             });
 
-            alert("Request submitted successfully!");
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Request submitted successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
             closeModal();
             navigate("/foods"); 
         } catch (error) {
@@ -106,7 +113,7 @@ const FoodDetails = () => {
 
             {/* Modal */}
             {isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center md:mb-28">
                     <div className="bg-white p-6 rounded shadow-lg w-96">
                         <h2 className="text-xl font-semibold mb-4">Request Food</h2>
                         <div className="space-y-2">
