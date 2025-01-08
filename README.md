@@ -1,40 +1,104 @@
-# FoodBridge: Connecting Plates to People
+# 🍽️ FoodBridge
 
-## Purpose
-**FoodBridge** is a community-driven platform designed to reduce food waste and foster sharing by connecting individuals with surplus food to those in need. This application simplifies the process of donating, requesting, and managing food items securely and efficiently.
+<div align="center">
+  <img src="https://i.ibb.co.com/gPQhG8T/hgfhfghfhfdh.jpg" />
+</div>
 
-## Live URL
-[Visit FoodBridge](https://food-bd-31846.web.app/)
+## Overview 
 
-## Key Features
-- **Donate Food**: Share surplus food by providing detailed information, including pickup location and expiration date.
-- **View Available Food**: Browse food items, with sorting by expiration date and search functionality.
-- **Request Food**: Easily request available food items and track your requests in a personalized dashboard.
-- **Manage Donations**: Update or delete food donations through an intuitive interface.
-- **Secure Authentication**: Login with email/password or social login (Google/GitHub).
-- **Responsive Design**: Seamlessly accessible on mobile, tablet, and desktop devices.
-- **Token-Based Security**: Secure private routes with JWT authentication.
+FoodBridge is a community-driven platform designed to reduce food waste by connecting people with surplus food to those in need. Our mission is to create a sustainable and caring community through food sharing.
 
-## Technologies and npm Packages
-### Frontend:
+
+## Technologies Used 
+
+### Frontend
 - React.js
 - Tailwind CSS
-- Daisyui
-- React Router DOM
-- Axios
+- JavaScript (ES6+)
+- Firebase Authentication
 
-### Backend:
+### Backend
 - Node.js
 - Express.js
 - MongoDB
-- Firebase Authentication
-- JWT (JSON Web Token)
+- JWT (JSON Web Tokens)
 
-### Other npm Packages:
-- React Toastify
-- Sweet Alert 2
-- TanStack Query
-- dotenv
-- cors
+## Key Features
 
+- 🔐 Secure user authentication
+- 🍽️ Food listing and donation management
+- 📍 Location-based food sharing
+- 🕒 Real-time availability tracking
+- ⭐ Community rating system
+- 📱 Responsive design for all devices
+- 🤝 Direct donor-recipient communication
+- 📊 Food waste reduction metrics
 
+## Dependencies 
+
+### Frontend Dependencies
+```json
+{
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "tailwindcss": "^3.4.1",
+  "firebase": "latest",
+  "lucide-react": "^0.344.0"
+}
+```
+
+### Backend Dependencies
+```json
+{
+  "express": "^4.18.x",
+  "mongodb": "^6.x",
+  "jsonwebtoken": "^9.x",
+  "cors": "^2.8.x",
+  "dotenv": "^16.x"
+}
+```
+
+## Installation Guide 
+
+1. Clone the repository:
+```bash
+https://github.com/shofiq18/food-client.git
+```
+
+2. Install frontend dependencies:
+```bash
+cd foodbridge/food-client
+npm install
+```
+
+3. Install backend dependencies:
+```bash
+cd ../food-server
+npm install
+```
+
+4. Set up environment variables:
+- Create `.env` file in frontend directory
+- Create `.env` file in backend directory
+
+5. Start the development servers:
+
+Frontend:
+```bash
+npm run dev
+```
+
+Backend:
+```bash
+npm run start
+```
+
+## Links 
+
+- 🌐 Live Website: [FoodBridge Live](https://food-bd-31846.web.app/foods)
+- 📝 Frontend Repository: [GitHub Frontend](https://github.com/shofiq18/food-client)
+- ⚙️ Backend Repository: [GitHub Backend](https://github.com/shofiq18/food-server)
+
+<div align="center">
+Made with ❤️ by Md. Shofiqul Islam 
+</div>
