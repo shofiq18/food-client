@@ -8,14 +8,13 @@ const MyFoodRequest = () => {
     const [requests, setRequests] = useState([]);
     const [loading, setLoading] = useState(true);
 
- 
     const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-       axiosSecure.get(`/my-requests?email=${user.email}`)
-       .then(res => setRequests(res.data) );
-       setLoading(false);
-
+        axiosSecure
+            .get(`/my-requests?email=${user.email}`)
+            .then((res) => setRequests(res.data))
+            .finally(() => setLoading(false));
     }, [user.email]);
 
     if (loading) {
@@ -27,27 +26,34 @@ const MyFoodRequest = () => {
             <h1 className="text-2xl font-bold mb-6">My Food Requests</h1>
 
             {requests.length > 0 ? (
-                
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {requests.map((request) => (
-                       <Reveal key={request._id}>
-                         <div  className="border rounded-lg shadow p-4">
-                            <img
-                                src={request.imageUrl}
-                                alt={request.foodName}
-                                className="w-full h-48 object-cover rounded-md mb-4"
-                            />
-                            <h2 className="text-xl font-semibold">{request.foodName}</h2>
-                            <p className="text-gray-600">Request Date: {new Date(request.requestDate).toLocaleString()}</p>
-                            <p className="text-gray-600">Donator: {request.foodDonatorName}</p>
-                            <p className="text-gray-600">Pickup Location: {request.pickupLocation}</p>
-                            <p className="text-gray-600">Expiration Date: {new Date(request.expirationDate).toLocaleString()}</p>
-                            <p className="text-gray-600">Notes: {request.additionalNotes}</p>
-                        </div>
-                       </Reveal>
-                    ))}
-                </div>
-                
+                <Reveal>
+                    <div className="overflow-x-auto">
+                        <table className="table-auto w-full border-collapse border border-gray-300">
+                            <thead>
+                                <tr className="bg-gray-200">
+                                    <th className="border border-gray-300 px-4 py-2 text-left">Food Name</th>
+                                    <th className="border border-gray-300 px-4 py-2 text-left">Request Date</th>
+                                    <th className="border border-gray-300 px-4 py-2 text-left">Donator</th>
+                                    <th className="border border-gray-300 px-4 py-2 text-left">Pickup Location</th>
+                                    <th className="border border-gray-300 px-4 py-2 text-left">Expiration Date</th>
+                                    <th className="border border-gray-300 px-4 py-2 text-left">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {requests.map((request) => (
+                                    <tr key={request._id}>
+                                        <td className="border border-gray-300 px-4 py-2">{request.foodName}</td>
+                                        <td className="border border-gray-300 px-4 py-2">{new Date(request.requestDate).toLocaleString()}</td>
+                                        <td className="border border-gray-300 px-4 py-2">{request.foodDonatorName}</td>
+                                        <td className="border border-gray-300 px-4 py-2">{request.pickupLocation}</td>
+                                        <td className="border border-gray-300 px-4 py-2">{new Date(request.expirationDate).toLocaleString()}</td>
+                                        <td className="border border-gray-300 px-4 py-2">{request.additionalNotes}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </Reveal>
             ) : (
                 <div className="text-center text-gray-500">You have no food requests yet.</div>
             )}
