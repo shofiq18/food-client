@@ -4,7 +4,6 @@ import Reveal from "../animation/Reveal";
 import { easeOut, motion } from "framer-motion";
 
 
-
 const Banner = () => {
     return (
         

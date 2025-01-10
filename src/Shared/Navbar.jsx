@@ -40,7 +40,10 @@ const Navbar = () => {
           Available Foods
         </NavLink>
       </li>
-      <li>
+      {
+        user?.email && (
+          <>
+             <li>
         <NavLink
           to="/add"
           className="hover:text-teal-500 transition duration-300"
@@ -64,6 +67,9 @@ const Navbar = () => {
           My Food Request
         </NavLink>
       </li>
+          </>
+        )
+      }
     </>
   );
 
