@@ -15,7 +15,7 @@ const Footer = () => {
     return (
         <Reveal>
             <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-300 px-6 py-12">
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
                 {/* About Section */}
                 <div>
                     <h2 className="text-3xl font-bold text-white">About <span className="text-green-500">FoodBridge</span></h2>
@@ -32,25 +32,31 @@ const Footer = () => {
                     <ul className="mt-4 space-y-3">
                         <li className="flex items-center space-x-2">
                             <FaHome className="text-teal-500" />
-                            <a href="/home" className="hover:text-teal-400">
+                            <a href="/" className="hover:text-teal-400">
                                 Home
                             </a>
                         </li>
                         <li className="flex items-center space-x-2">
                             <FaClipboardList className="text-teal-500" />
-                            <a href="/available-foods" className="hover:text-teal-400">
+                            <a href="/foods" className="hover:text-teal-400">
                                 Available Foods
                             </a>
                         </li>
                         <li className="flex items-center space-x-2">
                             <FaPlusSquare className="text-teal-500" />
-                            <a href="/add-food" className="hover:text-teal-400">
+                            <a href="/add" className="hover:text-teal-400">
                                 Add Food
                             </a>
                         </li>
                         <li className="flex items-center space-x-2">
                             <FaClipboardList className="text-teal-500" />
-                            <a href="/my-food-requests" className="hover:text-teal-400">
+                            <a href="/my-foods" className="hover:text-teal-400">
+                            Manage My Foods
+                            </a>
+                        </li>
+                        <li className="flex items-center space-x-2">
+                            <FaClipboardList className="text-teal-500" />
+                            <a href="/my-request" className="hover:text-teal-400">
                                 My Food Requests
                             </a>
                         </li>
@@ -98,22 +104,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Legal Section */}
-                <div>
-                    <h2 className="text-xl font-bold text-white">Legal</h2>
-                    <ul className="mt-4 space-y-3">
-                        <li>
-                            <a href="/terms" className="hover:text-teal-400">
-                                Terms of Service
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/privacy" className="hover:text-teal-400">
-                                Privacy Policy
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+               
             </div>
 
             {/* Footer Bottom Section */}

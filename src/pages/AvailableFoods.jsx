@@ -8,7 +8,7 @@ const AvailableFoods = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = useState(true);
-  const [gridColumns, setGridColumns] = useState(3);
+  const [gridColumns, setGridColumns] = useState(4);
 
   // Fetch foods from the backend
   const fetchFoods = async () => {
@@ -55,9 +55,9 @@ const AvailableFoods = () => {
     setFilteredFoods(sortedFoods);
   };
 
-  // Toggle between 3 and 2 grid columns
+  // Toggle between grid column layouts
   const toggleLayout = () => {
-    setGridColumns((prevColumns) => (prevColumns === 3 ? 2 : 3));
+    setGridColumns((prevColumns) => (prevColumns === 4 ? 3 : 4));
   };
 
   if (loading) {
@@ -92,13 +92,17 @@ const AvailableFoods = () => {
 
         {/* Change Layout Button */}
         <button onClick={toggleLayout} className="border p-2 rounded">
-          Change Layout ({gridColumns} Columns)
+          Change Layout ({gridColumns === 4 ? "4 Columns" : "3 Columns"})
         </button>
       </div>
 
       {/* Food Cards */}
       <div
-        className={`grid grid-cols-1 md:grid-cols-${gridColumns} lg:grid-cols-${gridColumns} gap-6`}
+        className={`grid grid-cols-1 ${
+          gridColumns === 4
+            ? "md:grid-cols-2 lg:grid-cols-4"
+            : "md:grid-cols-1 lg:grid-cols-3"
+        } gap-6`}
       >
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => (
@@ -115,8 +119,7 @@ const AvailableFoods = () => {
                   {food.foodName}
                 </h2>
                 <p className="text-gray-700 text-sm mb-1">
-                  <span className="font-semibold">Quantity:</span>{" "}
-                  {food.quantity}
+                  <span className="font-semibold">Quantity:</span> {food.quantity}
                 </p>
                 <p className="text-gray-700 text-sm mb-1">
                   <span className="font-semibold">Pickup Location:</span>{" "}
@@ -127,8 +130,7 @@ const AvailableFoods = () => {
                   {new Date(food.expirationDate).toLocaleString()}
                 </p>
                 <p className="text-gray-700 text-sm mb-4">
-                  <span className="font-semibold">Donator:</span>{" "}
-                  {food.donator.name}
+                  <span className="font-semibold">Donator:</span> {food.donator.name}
                 </p>
                 <Link to={`/details/${food._id}`}>
                   <button className="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white font-semibold px-4 py-2 rounded-md hover:from-teal-600 hover:to-green-600 transition duration-300">

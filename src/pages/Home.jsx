@@ -11,7 +11,7 @@ const Home = () => {
             {/* Why Choose FoodBridge Section */}
             <section className="py-10 bg-gray-100">
                 <div className="container mx-auto text-center px-4">
-                    <h2 className=" text-2xl md:text-3xl font-bold mb-6">Why Choose FoodBridge?</h2>
+                    <h2 className=" text-2xl md:text-3xl font-bold mb-10">Why Choose FoodBridge?</h2>
                     <Reveal>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="border border-gray-200 rounded-lg shadow-lg p-6 bg-gradient-to-br from-teal-50 to-white hover:shadow-2xl hover:-translate-y-2 transition-transform duration-300">
@@ -48,9 +48,9 @@ const Home = () => {
 
 
             {/* Community Impact Section */}
-            <section className="py-10 bg-blue-50">
+            <section className="py-16 bg-blue-50">
                 <div className="container mx-auto text-center px-4">
-                    <h2 className=" text-2xl md:text-3xl font-bold mb-6">Our Community Impact</h2>
+                    <h2 className=" text-2xl md:text-3xl font-bold mb-16">Our Community Impact</h2>
                    <Reveal>
                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-transform duration-300">
