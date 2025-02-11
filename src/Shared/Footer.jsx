@@ -60,6 +60,12 @@ const Footer = () => {
                                 My Food Requests
                             </a>
                         </li>
+                        <li className="flex items-center space-x-2">
+                            <FaClipboardList className="text-teal-500" />
+                            <a href="/about" className="hover:text-teal-400">
+                                About Us
+                            </a>
+                        </li>
                     </ul>
                 </div>
 

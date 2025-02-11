@@ -13,6 +13,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import PrivateRoute from "../pages/PrivateRoute";
 import FoodDetails from "../pages/FoodDetails";
+import AboutUs from "../pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/my-request',
         element: <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>,
+      },
+      {
+        path: '/about',
+        element: <AboutUs></AboutUs>
       },
       {
         path: 'login',

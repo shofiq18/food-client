@@ -28,7 +28,7 @@ const Banner = () => {
                 <div className="relative z-10 text-center text-white flex flex-col justify-center items-center h-full">
                     <motion.h1
                         animate={{ x: 100 }}
-                        transition={{ duration: 3, delay: 10, ease: easeOut, repeat: Infinity }}
+                        transition={{ duration: 5, delay: 3, ease: easeOut, repeat: Infinity }}
                         className="text-3xl text-gray-200 md:text-4xl lg:text-5xl font-bold"
                     >
                         Welcome to{" "}

@@ -27,7 +27,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className="hover:text-teal-500 transition duration-300"
+          className="hover:text-black transition duration-300"
         >
           Home
         </NavLink>
@@ -35,7 +35,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/foods"
-          className="hover:text-teal-500 transition duration-300"
+          className="hover:text-black transition duration-300"
         >
           Available Foods
         </NavLink>
@@ -43,33 +43,42 @@ const Navbar = () => {
       {
         user?.email && (
           <>
-             <li>
-        <NavLink
-          to="/add"
-          className="hover:text-teal-500 transition duration-300"
-        >
-          Add Food
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/my-foods"
-          className="hover:text-teal-500 transition duration-300"
-        >
-          Manage My Foods
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/my-request"
-          className="hover:text-teal-500 transition duration-300"
-        >
-          My Food Request
-        </NavLink>
-      </li>
+            <li>
+              <NavLink
+                to="/add"
+                className="hover:text-black transition duration-300"
+              >
+                Add Food
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/my-foods"
+                className="hover:text-black transition duration-300"
+              >
+                Manage My Foods
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/my-request"
+                className="hover:text-black transition duration-300"
+              >
+                My Food Request
+              </NavLink>
+            </li>
           </>
         )
       }
+      <li>
+        <NavLink
+          to="/about"
+          className="hover:text-black transition duration-300 "
+        >
+          About Us
+        </NavLink>
+      </li>
+
     </>
   );
 
