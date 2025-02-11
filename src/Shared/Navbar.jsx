@@ -126,7 +126,7 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal gap-6 text-base font-medium text-white">
+          <ul className="menu menu-horizontal gap-4 text-base font-medium text-white">
             {links}
           </ul>
         </div>
