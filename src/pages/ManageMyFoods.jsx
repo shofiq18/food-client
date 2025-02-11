@@ -116,7 +116,7 @@ const ManageMyFoods = () => {
 
     return (
         <Reveal>
-            <div className="container py-12 mx-auto pr-1 md:p-4 lg:pb-52 lg:pt-12">
+            <div className="container min-h-screen py-12 mx-auto pr-1 md:p-4 lg:pb-52 lg:pt-12">
                 <h1 className="text-2xl text-center md:text-start font-bold mb-6">Manage My Foods</h1>
 
                 {foods.length > 0 ? (
