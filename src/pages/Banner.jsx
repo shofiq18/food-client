@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Reveal from "../animation/Reveal";
 import { easeOut, motion } from "framer-motion";
-import video from "../../public/video.mp4";
 
 const Banner = () => {
     return (
@@ -17,7 +16,7 @@ const Banner = () => {
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover"
                 >
-                    <source src={video} type="video/mp4" />
+                    <source src="/video.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
 
