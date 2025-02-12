@@ -7,7 +7,6 @@ import { FaUserCircle } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../context/AuthProvider";
-import Reveal from "../animation/Reveal";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);

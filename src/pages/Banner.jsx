@@ -44,16 +44,16 @@ const Banner = () => {
                     </p>
 
                     {/* Call-to-Action Buttons */}
-                    <div className="mt-6 flex space-x-4">
+                    <div className="mt-6 flex space-x-8">
                         <Link
                             to="/foods"
-                            className="bg-green-600 hover:bg-green-400 text-white px-2 md:px-6 py-3 rounded-lg font-medium"
+                            className=" hover:bg-green-400 text-white px-2 md:px-6 py-3 border-b-4 border-green-400 rounded-xl font-medium"
                         >
                             Explore Foods
                         </Link>
                         <Link
                             to="/add"
-                            className="bg-blue-500 hover:bg-blue-600 text-white px-2 md:px-6 py-3 rounded-lg font-medium"
+                            className="border-b-4 rounded-xl hover:bg-blue-400 text-white px-2 md:px-6 py-3 border-blue-400 font-medium"
                         >
                             Donate Food
                         </Link>
