@@ -43,7 +43,7 @@ const AboutUs = () => {
 
       {/* Our Values Section */}
       <Reveal>
-        <h2 className="text-3xl font-bold text-teal-600 mt-12">Our Values</h2>
+        <h2 className="text-3xl font-bold text-teal-600 mt-16">Our Values</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
           A few important things we live by.
         </p>
