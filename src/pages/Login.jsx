@@ -60,7 +60,7 @@ const Login = () => {
                     <div className="text-center lg:text-left">
                         <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold">Login now!</h1>
                     </div>
-                    <div className="card bg-white lg:w-[500px] py-6 mt-6 shadow-2xl">
+                    <div className=" food-card card bg-white lg:w-[500px] py-6 mt-6 shadow-2xl">
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -70,7 +70,7 @@ const Login = () => {
                                     type="email"
                                     placeholder="email"
                                     name="email"
-                                    className="input input-bordered"
+                                    className="layout-button input input-bordered"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
@@ -84,7 +84,7 @@ const Login = () => {
                                     type="password"
                                     placeholder="password"
                                     name="password"
-                                    className="input input-bordered"
+                                    className="layout-button input input-bordered"
                                     required
                                 />
                                 {error.login && (
@@ -118,7 +118,7 @@ const Login = () => {
                                 Login with Google
                             </button>
                         </div>
-                        <p className="ml-4 mt-4 text-base text-center text-gray-600">
+                        <p className="ml-4 mt-4 text-base text-center ">
                             Don't have an Account?{" "}
                             <Link className="text-green-500 font-bold border-b" to="/signup">
                                 Register

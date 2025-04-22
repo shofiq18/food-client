@@ -94,7 +94,7 @@ const Signup = () => {
                             Register now!
                         </h1>
                     </div>
-                    <div className="card bg-white lg:w-[500px] py-6 mt-6 shadow-2xl">
+                    <div className="food-card card bg-white lg:w-[500px] py-6 mt-6 shadow-2xl">
                         <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -104,7 +104,7 @@ const Signup = () => {
                                     type="text"
                                     placeholder="name"
                                     name="name"
-                                    className="input input-bordered"
+                                    className="layout-button input input-bordered"
                                     required
                                 />
                             </div>
@@ -116,7 +116,7 @@ const Signup = () => {
                                     type="text"
                                     placeholder="photo-url"
                                     name="photo"
-                                    className="input input-bordered"
+                                    className="layout-button input input-bordered"
                                     required
                                 />
                             </div>
@@ -128,7 +128,7 @@ const Signup = () => {
                                     type="email"
                                     placeholder="email"
                                     name="email"
-                                    className="input input-bordered"
+                                    className="layout-button input input-bordered"
                                     required
                                 />
                             </div>
@@ -140,7 +140,7 @@ const Signup = () => {
                                     type="password"
                                     placeholder="password"
                                     name="password"
-                                    className="input input-bordered"
+                                    className="layout-button input input-bordered"
                                     required
                                 />
                                 {error.password && (
@@ -170,7 +170,7 @@ const Signup = () => {
                                 Login with Google
                             </button>
                         </div>
-                        <p className="mt-4 text-base text-center text-gray-600">
+                        <p className="mt-4 text-base text-center ">
                             Already have an Account?{" "}
                             <Link className="text-green-500 font-bold border-b" to="/login">
                                 Login

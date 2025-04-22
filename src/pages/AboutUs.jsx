@@ -8,7 +8,7 @@ const AboutUs = () => {
       {/* Our Purpose Section */}
       <Reveal>
         <h1 className="text-4xl font-bold text-teal-600 mb-6">Our Purpose</h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+        <p className="text-sm max-w-3xl mx-auto mb-8">
           Empowering people to end global hunger. We’re here to make food accessible for everyone.
           Through FoodBridge, you can donate meals, reduce food waste, and make a real difference.
         </p>

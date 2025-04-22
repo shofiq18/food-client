@@ -28,15 +28,15 @@ const FeaturedFoods = () => {
 
     return (
 
-        <div className="container mx-auto p-6">
-            <h1 className="text-3xl font-bold  mb-12 mt-6">Featured Foods</h1>
+        <div className=" container mx-auto p-6">
+            <h1 className=" text-3xl font-bold  mb-12 mt-6">Featured Foods</h1>
 
             {/* Food Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {foods.map((food) => (
                     <Reveal key={food._id}>
                         <div
-                            className="border border-gray-200 rounded-lg shadow-lg p-6 bg-gradient-to-br from-teal-50 to-white hover:shadow-2xl hover:-translate-y-2 transition-transform duration-300"
+                            className=" food-card border border-gray-200 rounded-lg shadow-lg p-6 bg-gradient-to-br from-teal-50 to-white hover:shadow-2xl hover:-translate-y-2 transition-transform duration-300"
                         >
                             <img
                                 src={food.imageUrl}
@@ -46,18 +46,18 @@ const FeaturedFoods = () => {
                             <h2 className="text-2xl font-bold text-teal-600 mb-2">
                                 {food.foodName}
                             </h2>
-                            <p className="text-gray-700 text-sm mb-1">
+                            <p className=" text-sm mb-1">
                                 <span className="font-semibold">Quantity:</span> {food.quantity}
                             </p>
-                            <p className="text-gray-700 text-sm mb-1">
+                            <p className=" text-sm mb-1">
                                 <span className="font-semibold">Pickup Location:</span>{" "}
                                 {food.pickupLocation}
                             </p>
-                            <p className="text-gray-700 text-sm mb-1">
+                            <p className=" text-sm mb-1">
                                 <span className="font-semibold">Expiration Date:</span>{" "}
                                 {new Date(food.expirationDate).toLocaleString()}
                             </p>
-                            <p className="text-gray-700 text-sm mb-4">
+                            <p className=" text-sm mb-4">
                                 <span className="font-semibold">Donator:</span> {food.donator.name}
                             </p>
                             <Link to={`/details/${food._id}`}>

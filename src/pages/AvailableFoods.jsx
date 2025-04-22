@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Reveal from "../animation/Reveal";
@@ -61,12 +62,12 @@ const AvailableFoods = () => {
   };
 
   if (loading) {
-    return <div className="text-center py-10">Loading foods...</div>;
+    return <div className="text-center py-10 text-[var(--card-text)]">Loading foods...</div>;
   }
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-2xl md:text-3xl lg:text-4xl text-center border-b pt-6 font-bold mb-10">
+    <div className=" container mx-auto p-6">
+      <h1 className=" text-2xl md:text-3xl lg:text-4xl text-center py-12 font-bold mb-10">
         Available Foods
       </h1>
 
@@ -77,21 +78,21 @@ const AvailableFoods = () => {
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search by food name"
-          className="border p-2 rounded w-full md:w-1/3"
+          className="search-input p-2 rounded w-full md:w-1/3"
         />
 
         {/* Sort Dropdown */}
         <select
           value={sortOrder}
           onChange={handleSort}
-          className="border p-2 rounded"
+          className="sort-select p-2 rounded"
         >
           <option value="asc">Sort by Expiration (Ascending)</option>
           <option value="desc">Sort by Expiration (Descending)</option>
         </select>
 
         {/* Change Layout Button */}
-        <button onClick={toggleLayout} className="border p-2 rounded">
+        <button onClick={toggleLayout} className="layout-button p-2 rounded">
           Change Layout ({gridColumns === 4 ? "4 Columns" : "3 Columns"})
         </button>
       </div>
@@ -107,33 +108,29 @@ const AvailableFoods = () => {
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => (
             <Reveal key={food._id}>
-              <div
-                className="border border-gray-200 rounded-lg shadow-lg p-6 bg-gradient-to-br from-teal-50 to-white hover:shadow-2xl hover:-translate-y-2 transition-transform duration-300"
-              >
+              <div className="food-card rounded-lg shadow-lg p-6 hover:shadow-2xl hover:-translate-y-2 transition-transform duration-300">
                 <img
                   src={food.imageUrl}
                   alt={food.foodName}
-                  className="w-full h-48 object-cover rounded-md mb-4 border border-gray-300"
+                  className="w-full h-48 object-cover rounded-md mb-4"
                 />
-                <h2 className="text-2xl font-bold text-teal-600 mb-2">
-                  {food.foodName}
-                </h2>
-                <p className="text-gray-700 text-sm mb-1">
+                <h2 className="text-2xl font-bold mb-2">{food.foodName}</h2>
+                <p className="text-sm mb-1">
                   <span className="font-semibold">Quantity:</span> {food.quantity}
                 </p>
-                <p className="text-gray-700 text-sm mb-1">
+                <p className="text-sm mb-1">
                   <span className="font-semibold">Pickup Location:</span>{" "}
                   {food.pickupLocation}
                 </p>
-                <p className="text-gray-700 text-sm mb-1">
+                <p className="text-sm mb-1">
                   <span className="font-semibold">Expiration Date:</span>{" "}
                   {new Date(food.expirationDate).toLocaleString()}
                 </p>
-                <p className="text-gray-700 text-sm mb-4">
+                <p className="text-sm mb-4">
                   <span className="font-semibold">Donator:</span> {food.donator.name}
                 </p>
                 <Link to={`/details/${food._id}`}>
-                  <button className="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white font-semibold px-4 py-2 rounded-md hover:from-teal-600 hover:to-green-600 transition duration-300">
+                  <button className="food-card-button w-full font-semibold px-4 py-2 rounded-md">
                     View Details
                   </button>
                 </Link>
@@ -141,7 +138,7 @@ const AvailableFoods = () => {
             </Reveal>
           ))
         ) : (
-          <div className="col-span-full text-center text-gray-500">
+          <div className="col-span-full text-center" style={{ color: 'var(--card-text)' }}>
             No foods match your search or sorting criteria.
           </div>
         )}
