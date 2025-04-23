@@ -83,12 +83,12 @@ const AddFood = () => {
     return (
        <Reveal>
          <div className="container max-w-5xl  mx-auto p-14">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl text-center my-10 font-bold border-b">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl text-center my-10 font-bold ">
                 Add a Food Item
             </h1>
             <form
                 onSubmit={handleSubmit}
-                className="space-y-4 bg-white p-6 rounded shadow-md"
+                className="space-y-4 food-card p-6 rounded shadow-md"
             >
                 {/* Food Name */}
                 <div>
@@ -99,7 +99,7 @@ const AddFood = () => {
                         value={formData.foodName}
                         onChange={handleChange}
                         required
-                        className="w-full border p-2 rounded"
+                        className="w-full border layout-button p-2 rounded"
                         placeholder="Enter the food name"
                     />
                 </div>
@@ -113,7 +113,7 @@ const AddFood = () => {
                         value={formData.imageUrl}
                         onChange={handleChange}
                         required
-                        className="w-full border p-2 rounded"
+                        className="w-full layout-button border p-2 rounded"
                         placeholder="Enter food image URL"
                     />
                 </div>
@@ -127,7 +127,7 @@ const AddFood = () => {
                         value={formData.quantity}
                         onChange={handleChange}
                         required
-                        className="w-full border p-2 rounded"
+                        className="w-full layout-button border p-2 rounded"
                         placeholder="Enter quantity"
                     />
                 </div>
@@ -141,7 +141,7 @@ const AddFood = () => {
                         value={formData.pickupLocation}
                         onChange={handleChange}
                         required
-                        className="w-full border p-2 rounded"
+                        className="w-full layout-button border p-2 rounded"
                         placeholder="Enter pickup location"
                     />
                 </div>
@@ -155,7 +155,7 @@ const AddFood = () => {
                         value={formData.expirationDate}
                         onChange={handleChange}
                         required
-                        className="w-full border p-2 rounded"
+                        className="w-full layout-button border p-2 rounded"
                     />
                 </div>
 
@@ -166,7 +166,7 @@ const AddFood = () => {
                         name="notes"
                         value={formData.notes}
                         onChange={handleChange}
-                        className="w-full border p-2 rounded"
+                        className="w-full layout-button border p-2 rounded"
                         placeholder="Add any additional notes (optional)"
                     ></textarea>
                 </div>

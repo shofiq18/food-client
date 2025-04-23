@@ -5,169 +5,285 @@
 
 body{
     font-family: "Sora", sans-serif;
-    /* background-color: rgba(233, 232, 232, 0.521); */
+    
 
 }
 
-
 :root {
-    /* Existing Navbar variables */
-    --navbar-bg-from: #0d9488; /* teal-600 */
-    --navbar-bg-to: #22c55e; /* green-500 */
-    --navbar-text: #ffffff;
-    --navbar-button-bg: #3b82f6; /* blue-500 */
-    --navbar-button-hover: #2563eb; /* blue-600 */
-    --navbar-logout-bg: #ef4444; /* red-500 */
-    --navbar-logout-hover: #dc2626; /* red-600 */
-    --navbar-signup-bg: #15803d; /* green-800 */
-    --navbar-signup-hover: #7e22ce; /* purple-600 */
-    --dropdown-bg: #ffffff;
-    --dropdown-text: #0d9488; /* teal-600 */
+  /* Existing Navbar and Food Card variables */
+  --navbar-bg-from: #0d9488; /* teal-600 */
+  --navbar-bg-to: #22c55e; /* green-500 */
+  --navbar-text: #ffffff;
+  --navbar-button-bg: #3b82f6; /* blue-500 */
+  --navbar-button-hover: #2563eb; /* blue-600 */
+  --navbar-logout-bg: #ef4444; /* red-500 */
+  --navbar-logout-hover: #dc2626; /* red-600 */
+  --navbar-signup-bg: #15803d; /* green-800 */
+  --navbar-signup-hover: #7e22ce; /* purple-600 */
+  --dropdown-bg: #ffffff;
+  --dropdown-text: #0d9488; /* teal-600 */
+  --card-bg-from: #ccfbf1; /* teal-50 */
+  --card-bg-to: #ffffff; /* white */
+  --card-text: #374151; /* gray-700 */
+  --card-title: #0d9488; /* teal-600 */
+  --card-border: #e5e7eb; /* gray-200 */
+  --card-button-bg-from: #14b8a6; /* teal-500 */
+  --card-button-bg-to: #22c55e; /* green-500 */
+  --card-button-hover-from: #0d9488; /* teal-600 */
+  --card-button-hover-to: #16a34a; /* green-600 */
+  --card-button-text: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db; /* gray-300 */
+  --input-text: #374151; /* gray-700 */
+  --container-bg: #ffffff;
+  --heading-text: #1f2937; /* gray-800 */
+  --heading-border: #e5e7eb; /* gray-200 */
+  --dropdown-bg: #ffffff;
+  --dropdown-text: #0d9488; /* teal-600 */
+
+  /* New Home page variables */
+ 
+  --section-text: #374151; /* gray-700 */
+  --why-card-bg-from: #edf3f2; /* teal-50 */
+  --why-card-bg-to: #ffffff; /* white */
+  --why-card-border: #e5e7eb; /* gray-200 */
+  --why-card-title: #1f2937; /* gray-800 */
+  --community-card-bg-from: #eff6ff; /* blue-50 */
+  --community-card-bg-to: #dbeafe; /* blue-100 */
+  --community-card-title: #3b82f6; /* blue-500 */
+  --community-card-text: #4b5563; /* gray-600 */
+  --community-card-border: #e5e7eb; /* gray-200 */
+  --community-green-bg-from: #ecfdf5; /* green-50 */
+  --community-green-bg-to: #d1fae5; /* green-100 */
+  --community-green-title: #22c55e; /* green-500 */
+  --community-purple-bg-from: #faf5ff; /* purple-50 */
+  --community-purple-bg-to: #ede9fe; /* purple-100 */
+  --community-purple-title: #a855f7; /* purple-500 */
+  --faq-border: #e5e7eb; /* gray-200 */
+  --faq-button-text: #1f2937; /* gray-800 */
+  --faq-button-icon: #3b82f6; /* blue-500 */
+}
+
+[data-theme="dark"] {
+  /* Existing Navbar and Food Card dark mode variables */
+  --navbar-bg-from: #1f2937; /* gray-800 */
+  --navbar-bg-to: #374151; /* gray-700 */
+  --navbar-text: #e5e7eb; /* gray-200 */
+  --navbar-button-bg: #60a5fa; /* blue-400 */
+  --navbar-button-hover: #3b82f6; /* blue-500 */
+  --navbar-logout-bg: #f87171; /* red-400 */
+  --navbar-logout-hover: #ef4444; /* red-500 */
+  --navbar-signup-bg: #16a34a; /* green-600 */
+  --navbar-signup-hover: #9333ea; /* purple-500 */
+  --dropdown-bg: #1f2937; /* gray-800 */
+  --dropdown-text: #e5e7eb; /* gray-200 */
+  --card-bg-from: #1f2937; /* gray-800 */
+  --card-bg-to: #374151; /* gray-700 */
+  --card-text: #e5e7eb; /* gray-200 */
+  --card-title: #2dd4bf; /* teal-400 */
+  --card-border: #4b5563; /* gray-600 */
+  --card-button-bg-from: #2dd4bf; /* teal-400 */
+  --card-button-bg-to: #4ade80; /* green-400 */
+  --card-button-hover-from: #14b8a6; /* teal-500 */
+  --card-button-hover-to: #22c55e; /* green-500 */
+  --card-button-text: #1f2937; /* gray-800 */
+  --input-bg: #374151; /* gray-700 */
+  --input-border: #6b7280; /* gray-500 */
+  --input-text: #e5e7eb; /* gray-200 */
+  --container-bg: #111827; /* gray-900 */
+  --heading-text: #e5e7eb; /* gray-200 */
+  --heading-border: #4b5563; /* gray-600 */
+  --dropdown-bg: #1f2937; /* gray-800 */
+  --dropdown-text: #e5e7eb; /* gray-200 */
+
+  /* New Home page dark mode variables */
   
-    /* New Food Card variables */
-    --card-bg-from: #ccfbf1; /* teal-50 */
-    --card-bg-to: #ffffff; /* white */
-    --card-text: #374151; /* gray-700 */
-    --card-title: #0d9488; /* teal-600 */
-    --card-border: #e5e7eb; /* gray-200 */
-    --card-button-bg-from: #14b8a6; /* teal-500 */
-    --card-button-bg-to: #22c55e; /* green-500 */
-    --card-button-hover-from: #0d9488; /* teal-600 */
-    --card-button-hover-to: #16a34a; /* green-600 */
-    --card-button-text: #ffffff;
-    --input-bg: #ffffff;
-    --input-border: #d1d5db; /* gray-300 */
-    --input-text: #374151; /* gray-700 */
-    --container-bg: #ffffff;
-    --heading-text: #1f2937; /* gray-800 */
-    --heading-border: #e5e7eb; /* gray-200 */
-  }
-  
-  [data-theme="dark"] {
-    /* Existing Navbar dark mode variables */
-    --navbar-bg-from: #1f2937; /* gray-800 */
-    --navbar-bg-to: #374151; /* gray-700 */
-    --navbar-text: #e5e7eb; /* gray-200 */
-    --navbar-button-bg: #60a5fa; /* blue-400 */
-    --navbar-button-hover: #3b82f6; /* blue-500 */
-    --navbar-logout-bg: #f87171; /* red-400 */
-    --navbar-logout-hover: #ef4444; /* red-500 */
-    --navbar-signup-bg: #16a34a; /* green-600 */
-    --navbar-signup-hover: #9333ea; /* purple-500 */
-    --dropdown-bg: #1f2937; /* gray-800 */
-    --dropdown-text: #e5e7eb; /* gray-200 */
-  
-    /* New Food Card dark mode variables */
-    --card-bg-from: #1f2937; /* gray-800 */
-    --card-bg-to: #374151; /* gray-700 */
-    --card-text: #e5e7eb; /* gray-200 */
-    --card-title: #2dd4bf; /* teal-400 */
-    --card-border: #4b5563; /* gray-600 */
-    --card-button-bg-from: #2dd4bf; /* teal-400 */
-    --card-button-bg-to: #4ade80; /* green-400 */
-    --card-button-hover-from: #14b8a6; /* teal-500 */
-    --card-button-hover-to: #22c55e; /* green-500 */
-    --card-button-text: #1f2937; /* gray-800 */
-    --input-bg: #374151; /* gray-700 */
-    --input-border: #6b7280; /* gray-500 */
-    --input-text: #e5e7eb; /* gray-200 */
-    --container-bg: #0f1420; /* gray-900 */
-    --heading-text: #e5e7eb; /* gray-200 */
-    --heading-border: #4b5563; /* gray-600 */
-  }
-  
-  /* Existing Navbar styles */
-  .navbar {
-    background: linear-gradient(to right, var(--navbar-bg-from), var(--navbar-bg-to));
-    color: var(--navbar-text);
-  }
-  
-  .navbar .menu-horizontal a {
-    color: var(--navbar-text);
-  }
-  
-  .navbar .menu-horizontal a:hover {
-    color: #000000;
-  }
-  
-  .navbar .btn-login {
-    background-color: var(--navbar-button-bg);
-  }
-  
-  .navbar .btn-login:hover {
-    background-color: var(--navbar-button-hover);
-  }
-  
-  .navbar .btn-logout {
-    background-color: var(--navbar-logout-bg);
-  }
-  
-  .navbar .btn-logout:hover {
-    background-color: var(--navbar-logout-hover);
-  }
-  
-  .navbar .btn-signup {
-    background-color: var(--navbar-signup-bg);
-  }
-  
-  .navbar .btn-signup:hover {
-    background-color: var(--navbar-signup-hover);
-  }
-  
-  .navbar .dropdown-content {
-    background-color: var(--dropdown-bg);
-    color: var(--dropdown-text);
-  }
-  
-  .navbar .user-icon {
-    color: var(--navbar-text);
-  }
-  
-  .navbar .user-img {
-    border-color: var(--navbar-text);
-  }
-  
-  /* New Food Card styles */
-  .food-card {
-    background: linear-gradient(to bottom right, var(--card-bg-from), var(--card-bg-to));
-    color: var(--card-text);
-    border: 1px solid var(--card-border);
-  }
-  
-  .food-card h2 {
-    color: var(--card-title);
-  }
-  
-  .food-card img {
-    border: 1px solid var(--card-border);
-  }
-  
-  .food-card-button {
-    background: linear-gradient(to right, var(--card-button-bg-from), var(--card-button-bg-to));
-    color: var(--card-button-text);
-  }
-  
-  .food-card-button:hover {
-    background: linear-gradient(to right, var(--card-button-hover-from), var(--card-button-hover-to));
-  }
-  
-  .food-container {
-    background-color: var(--container-bg);
-  }
-  
-  .food-heading {
-    color: var(--heading-text);
-    border-bottom: 2px solid var(--heading-border);
-  }
-  
-  .search-input,
-  .sort-select,
-  .layout-button {
-    background-color: var(--input-bg);
-    border: 1px solid var(--input-border);
-    color: var(--input-text);
-  }
-  
-  .search-input::placeholder {
-    color: var(--input-text);
-  }
+  --section-text: #e5e7eb; /* gray-200 */
+  --why-card-bg-from: #1f2937; /* gray-800 */
+  --why-card-bg-to: #374151; /* gray-700 */
+  --why-card-border: #4b5563; /* gray-600 */
+  --why-card-title: #e5e7eb; /* gray-200 */
+  --community-card-bg-from: #1e3a8a; /* blue-900 */
+  --community-card-bg-to: #1e40af; /* blue-800 */
+  --community-card-title: #60a5fa; /* blue-400 */
+  --community-card-text: #d1d5db; /* gray-300 */
+  --community-card-border: #4b5563; /* gray-600 */
+  --community-green-bg-from: #064e3b; /* green-900 */
+  --community-green-bg-to: #065f46; /* green-800 */
+  --community-green-title: #4ade80; /* green-400 */
+  --community-purple-bg-from: #4c1d95; /* purple-900 */
+  --community-purple-bg-to: #5b21b6; /* purple-800 */
+  --community-purple-title: #c084fc; /* purple-400 */
+  --faq-border: #4b5563; /* gray-600 */
+  --faq-button-text: #e5e7eb; /* gray-200 */
+  --faq-button-icon: #60a5fa; /* blue-400 */
+}
+
+/* Existing Navbar styles */
+.navbar {
+  background: linear-gradient(to right, var(--navbar-bg-from), var(--navbar-bg-to));
+  color: var(--navbar-text);
+}
+
+.navbar .menu-horizontal a {
+  color: var(--navbar-text);
+}
+
+.navbar .menu-horizontal a:hover {
+  color: #000000;
+}
+
+.navbar .btn-login {
+  background-color: var(--navbar-button-bg);
+}
+
+.navbar .btn-login:hover {
+  background-color: var(--navbar-button-hover);
+}
+
+.navbar .btn-logout {
+  background-color: var(--navbar-logout-bg);
+}
+
+.navbar .btn-logout:hover {
+  background-color: var(--navbar-logout-hover);
+}
+
+.navbar .btn-signup {
+  background-color: var(--navbar-signup-bg);
+}
+
+.navbar .btn-signup:hover {
+  background-color: var(--navbar-signup-hover);
+}
+
+.navbar .dropdown-content {
+  background-color: var(--dropdown-bg);
+  color: var(--dropdown-text);
+}
+
+.navbar .user-icon {
+  color: var(--navbar-text);
+}
+
+.navbar .user-img {
+  border-color: var(--navbar-text);
+}
+.navbar .dropdown-content {
+  background-color: var(--dropdown-bg);
+  color: var(--dropdown-text);
+}
+
+.navbar .dropdown-content .swap {
+  margin-left: auto;
+}
+
+.navbar .dropdown-content li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .dropdown-content .swap svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Existing Food Card styles */
+.food-card {
+  background: linear-gradient(to bottom right, var(--card-bg-from), var(--card-bg-to));
+  color: var(--card-text);
+  border: 1px solid var(--card-border);
+}
+
+.food-card h2 {
+  color: var(--card-title);
+}
+
+.food-card img {
+  border: 1px solid var(--card-border);
+}
+
+.food-card-button {
+  background: linear-gradient(to right, var(--card-button-bg-from), var(--card-button-bg-to));
+  color: var(--card-button-text);
+}
+
+.food-card-button:hover {
+  background: linear-gradient(to right, var(--card-button-hover-from), var(--card-button-hover-to));
+}
+
+.food-container {
+  background-color: var(--container-bg);
+}
+
+.food-heading {
+  color: var(--heading-text);
+  border-bottom: 2px solid var(--heading-border);
+}
+
+.search-input,
+.sort-select,
+.layout-button {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
+}
+
+.search-input::placeholder {
+  color: var(--input-text);
+}
+
+/* New Home page styles */
+
+
+.section-heading {
+  color: var(--heading-text);
+}
+
+.why-card {
+  background: linear-gradient(to bottom right, var(--why-card-bg-from), var(--why-card-bg-to));
+  border: 1px solid var(--why-card-border);
+  color: var(--section-text);
+}
+
+.why-card h3 {
+  color: var(--why-card-title);
+}
+
+.community-card {
+  background: linear-gradient(to right, var(--community-card-bg-from), var(--community-card-bg-to));
+  border: 1px solid var(--community-card-border);
+  color: var(--community-card-text);
+}
+
+.community-card h3 {
+  color: var(--community-card-title);
+}
+
+.community-green {
+  background: linear-gradient(to right, var(--community-green-bg-from), var(--community-green-bg-to));
+}
+
+.community-green h3 {
+  color: var(--community-green-title);
+}
+
+.community-purple {
+  background: linear-gradient(to right, var(--community-purple-bg-from), var(--community-purple-bg-to));
+}
+
+.community-purple h3 {
+  color: var(--community-purple-title);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--faq-border);
+}
+
+.faq-button {
+  color: var(--faq-button-text);
+}
+
+.faq-button span {
+  color: var(--faq-button-icon);
+}

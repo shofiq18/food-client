@@ -30,7 +30,7 @@ const MyFoodRequest = () => {
                     <div className="overflow-x-auto">
                         <table className="table-auto w-full border-collapse border border-gray-300">
                             <thead>
-                                <tr className="bg-gray-200">
+                                <tr className="food-card bg-gray-100">
                                     <th className="border border-gray-300 px-4 py-2 text-left">Food Name</th>
                                     <th className="border border-gray-300 px-4 py-2 text-left">Request Date</th>
                                     <th className="border border-gray-300 px-4 py-2 text-left">Donator</th>

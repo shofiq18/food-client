@@ -27,14 +27,14 @@ const AboutUs = () => {
 
       {/* Mission Statement */}
       <Reveal>
-        <div className="bg-white shadow-lg rounded-lg p-6 mt-8 mx-auto max-w-4xl">
-          <p className="text-lg text-gray-800 font-medium">
+        <div className="bg-white food-card shadow-lg rounded-lg p-6 mt-8 mx-auto max-w-4xl">
+          <p className="text-lg  font-medium">
             There's one thing we’ll never stop believing in:
           </p>
-          <h2 className="text-2xl font-bold text-teal-700 mt-2">
+          <h2 className="text-2xl font-bold  mt-2">
             Together, we can be the generation that ends global hunger.
           </h2>
-          <p className="text-gray-600 mt-4">
+          <p className="mt-4">
             Every day, millions of people suffer from food insecurity, but we believe hunger is
             solvable. With your help, we can create a future where no one goes to bed hungry.
           </p>
@@ -44,33 +44,33 @@ const AboutUs = () => {
       {/* Our Values Section */}
       <Reveal>
         <h2 className="text-3xl font-bold text-teal-600 mt-16">Our Values</h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+        <p className="text-lg  max-w-3xl mx-auto mb-8">
           A few important things we live by.
         </p>
       </Reveal>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <Reveal>
-          <div className="p-6 bg-blue-100 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+          <div className="p-6 bg-blue-100 food-card rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
             <FaUsers className="text-5xl text-blue-500 mx-auto mb-4" />
             <h2 className="text-xl font-semibold">Open and Honest</h2>
-            <p className="text-gray-500">We ensure transparency in food donations and impact.</p>
+            <p className="">We ensure transparency in food donations and impact.</p>
           </div>
         </Reveal>
 
         <Reveal>
-          <div className="p-6 bg-yellow-100 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+          <div className="p-6 food-card bg-yellow-100 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
             <FaUtensils className="text-5xl text-yellow-500 mx-auto mb-4" />
             <h2 className="text-xl font-semibold">Every Meal Counts</h2>
-            <p className="text-gray-500">Every donated meal changes a life, no matter how small.</p>
+            <p className="">Every donated meal changes a life, no matter how small.</p>
           </div>
         </Reveal>
 
         <Reveal>
-          <div className="p-6 bg-green-100 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+          <div className="p-6 food-card bg-green-100 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
             <FaHandsHelping className="text-5xl text-green-500 mx-auto mb-4" />
             <h2 className="text-xl font-semibold">We’re in This Together</h2>
-            <p className="text-gray-500">Ending hunger is a global effort, and we stand united.</p>
+            <p className="">Ending hunger is a global effort, and we stand united.</p>
           </div>
         </Reveal>
       </div>

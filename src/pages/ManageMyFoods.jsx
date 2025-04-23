@@ -123,7 +123,7 @@ const ManageMyFoods = () => {
                     <div className="overflow-x-auto">
                         <table className="table-fixed w-full border-collapse border border-gray-200">
                             <thead>
-                                <tr className="bg-gray-100 text-sm">
+                                <tr className="food-card ">
                                     <th className="border border-gray-200 px-2 py-3 w-1/4">Food Name</th>
                                     <th className="border border-gray-200 px-2 py-1 w-1/6">Quantity</th>
                                     <th className="border border-gray-200 px-2 py-1 w-1/3">Pickup Location</th>
@@ -168,34 +168,34 @@ const ManageMyFoods = () => {
                 {/* Update Modal */}
                 {isModalOpen && selectedFood && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center mb-28 md:mb-96">
-                        <div className="bg-white p-6 rounded shadow-lg w-96 max-w-full">
+                        <div className="food-card p-6 rounded shadow-lg w-96 max-w-full">
                             <h2 className="text-xl font-semibold mb-4">Update Food</h2>
-                            <form onSubmit={handleUpdate} className="space-y-4">
+                            <form onSubmit={handleUpdate} className="  space-y-4">
                                 <input
                                     type="text"
                                     name="foodName"
                                     defaultValue={selectedFood.foodName}
-                                    className="w-full border p-2 rounded text-sm"
+                                    className="w-full layout-button border p-2 rounded text-sm"
                                     required
                                 />
                                 <input
                                     type="number"
                                     name="quantity"
                                     defaultValue={selectedFood.quantity}
-                                    className="w-full border p-2 rounded text-sm"
+                                    className="w-full layout-button border p-2 rounded text-sm"
                                     required
                                 />
                                 <input
                                     type="text"
                                     name="pickupLocation"
                                     defaultValue={selectedFood.pickupLocation}
-                                    className="w-full border p-2 rounded text-sm"
+                                    className="w-full layout-button border p-2 rounded text-sm"
                                     required
                                 />
                                 <textarea
                                     name="notes"
                                     defaultValue={selectedFood.notes}
-                                    className="w-full border p-2 rounded text-sm"
+                                    className="w-full layout-button border p-2 rounded text-sm"
                                     placeholder="Add notes (optional)"
                                 ></textarea>
                                 <div className="flex justify-end space-x-2">
