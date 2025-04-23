@@ -82,12 +82,12 @@ const FoodDetails = () => {
                 </div>
                 <div className='space-y-1'>
                     <h2 className="text-xl font-semibold">{foodName}</h2>
-                    <p className="text-gray-600">Quantity: {quantity}</p>
-                    <p className="text-gray-600">Pickup Location: {pickupLocation}</p>
-                    <p className="text-gray-600">
+                    <p className="">Quantity: {quantity}</p>
+                    <p className="">Pickup Location: {pickupLocation}</p>
+                    <p className="">
                         Expiration Date: {new Date(expirationDate).toLocaleString()}
                     </p>
-                    <h2 className="text-gray-600">{notes}</h2>
+                    <h2 className="">{notes}</h2>
                     <p className="text-lg font-semibold">Donator: {donator.name}</p>
                     <h2 className="text-lg font-semibold">Donator Email: {donator.email}</h2>
                     <h2 className="text-lg font-semibold">Status: {status}</h2>
@@ -113,8 +113,8 @@ const FoodDetails = () => {
 
             {/* Modal */}
             {isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center md:mb-28">
-                    <div className="bg-white p-6 rounded shadow-lg w-96">
+                <div className="fixed  inset-0 bg-black bg-opacity-50 flex justify-center items-center mt-8 md:mb-28">
+                    <div className=" food-card p-6 rounded shadow-lg w-96">
                         <h2 className="text-xl font-semibold mb-4">Request Food</h2>
                         <div className="space-y-2">
                             <p><strong>Food Name:</strong> {foodName}</p>
@@ -129,7 +129,7 @@ const FoodDetails = () => {
                             <p><strong>Expiration Date:</strong> {new Date(expirationDate).toLocaleString()}</p>
                             <textarea
                                 placeholder="Add additional notes (optional)"
-                                className="w-full border p-2 rounded"
+                                className="w-full layout-button border p-2 rounded"
                                 value={additionalNotes}
                                 onChange={(e) => setAdditionalNotes(e.target.value)}
                             />
