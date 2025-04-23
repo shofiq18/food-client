@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Banner from './Banner';
 import FeaturedFoods from './FeaturedFoods';
 import Reveal from '../animation/Reveal';
+import Newsletter from './Newsletter';
 
 const faqs = [
     { question: "How does FoodBridge work?", answer: "FoodBridge connects individuals with surplus food to those in need through a seamless online platform." },
@@ -91,7 +92,7 @@ const Home = () => {
             <section className=" py-16">
                 <div className="container mx-auto px-4">
                     <h2 className="section-heading text-2xl md:text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
-                    <div className="max-w-3xl mx-auto">
+                    <div className="max-w-5xl mx-auto">
                         {faqs.map((faq, index) => (
                             <div key={index} className="faq-item py-4">
                                 <button
@@ -111,6 +112,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            {/* Newsletter here  */}
+            <Newsletter></Newsletter>
         </div>
     );
 };
