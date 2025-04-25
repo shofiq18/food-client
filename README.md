@@ -1,7 +1,7 @@
 # 🍽️ FoodBridge
 
 <div align="center">
-  <img src="https://i.ibb.co.com/20KtftPc/Screenshot-12.png" />
+  <img src="https://i.ibb.co.com/gPQhG8T/hgfhfghfhfdh.jp" />
 </div>
 
 ## Overview 
