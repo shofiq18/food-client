@@ -10,7 +10,7 @@ const FeaturedFoods = () => {
     const { data: foods, isLoading, isError, error } = useQuery({
         queryKey: ["foods"],
         queryFn: async () => {
-            const response = await fetch("https://assignment-11-server-nine-chi.vercel.app/featured-foods");
+            const response = await fetch("http://localhost:5000/featured-foods");
             if (!response.ok) {
                 throw new Error("Failed to fetch featured foods");
             }
@@ -58,7 +58,7 @@ const FeaturedFoods = () => {
                                 {new Date(food.expirationDate).toLocaleString()}
                             </p>
                             <p className=" text-sm mb-4">
-                                <span className="font-semibold">Donator:</span> {food.donator.name}
+                                <span className="font-semibold">Donator:</span> {food.donator?.name}
                             </p>
                             <Link to={`/details/${food._id}`}>
                                 <button className="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white font-semibold px-4 py-2 rounded-md hover:from-teal-600 hover:to-green-600 transition duration-300">

@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import useAxiosSecure from "../Shared/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -39,7 +41,7 @@ const Newsletter = () => {
 
         try {
             // API call to subscribe
-            await axiosSecure.post("/newsletter-subscribe", { email });
+            const response = await axiosSecure.post("/newsletter-subscribe", { email });
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -50,10 +52,16 @@ const Newsletter = () => {
             });
             setEmail(""); // Clear the input field
         } catch (error) {
+            let errorMessage = error.response?.data?.message || "Something went wrong. Please try again later.";
+            if (error.response?.status === 404) {
+                errorMessage = "Newsletter subscription service is currently unavailable. Please try again later.";
+            } else if (error.response?.status === 500) {
+                errorMessage = error.response?.data?.error || "Server error. Please try again later.";
+            }
             Swal.fire({
                 icon: "error",
                 title: "Subscription Failed",
-                text: "Something went wrong. Please try again later.",
+                text: errorMessage,
             });
             console.error("Error subscribing to newsletter:", error);
         } finally {
@@ -62,14 +70,16 @@ const Newsletter = () => {
     };
 
     return (
-        <section className="food-card py-12 px-4 md:px-6 lg:px-8">
+        <section className="food-card newsletter py-12 px-4 md:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
                 <p className="text-sm md:text-base mb-6">
                     Stay updated with the latest food donation events and updates!
                 </p>
                 <div className="flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-4">
+                    <label htmlFor="newsletter-email" className="sr-only">Email Address</label>
                     <input
+                        id="newsletter-email"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}

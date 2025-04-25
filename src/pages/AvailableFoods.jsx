@@ -15,7 +15,7 @@ const AvailableFoods = () => {
   const fetchFoods = async () => {
     try {
       const response = await fetch(
-        "https://assignment-11-server-nine-chi.vercel.app/available-foods"
+        "http://localhost:5000/available-foods"
       );
       const data = await response.json();
       setFoods(data);

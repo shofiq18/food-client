@@ -63,14 +63,16 @@ const AuthProvider = ({children}) => {
             if(currentUser?.email) {
                 const user = {email: currentUser.email};
 
-                axios.post('https://assignment-11-server-nine-chi.vercel.app/jwt', user, {withCredentials: true})
+                axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
                 .then(res => console.log(res.data))
+                .catch(err => console.error('Error during JWT request:', err));
                 setLoading(false);
+                
 
 
             }
             else {
-                axios.post('https://assignment-11-server-nine-chi.vercel.app/logout', {}, {
+                axios.post('http://localhost:5000/logout', {}, { // Updated URL
                     withCredentials: true
                 })
                 .then(res => console.log('logout', res.data))

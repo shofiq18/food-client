@@ -10,6 +10,8 @@ const FoodDetails = () => {
     const navigate = useNavigate();
     const food = useLoaderData();
     const { foodName, imageUrl, quantity, pickupLocation, expirationDate, notes, donator, status, _id } = food;
+    console.log("Food Details:", food); // Debugging line
+    console.log("User:", user); // Debugging line
 
     
     const [isModalOpen, setModalOpen] = useState(false);
@@ -41,14 +43,14 @@ const FoodDetails = () => {
 
         try {
             // Update food status in the database
-            await fetch(`https://assignment-11-server-nine-chi.vercel.app/foods/${_id}`, {
+            await fetch(`http://localhost:5000/foods/${_id}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: "requested" }),
             });
 
             // Add to My Requests collection
-            await fetch("https://assignment-11-server-nine-chi.vercel.app/my-requests", {
+            await fetch("http://localhost:5000/my-requests", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestData),
