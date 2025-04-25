@@ -1,24 +1,29 @@
 
-
 import React, { useContext, useState } from 'react';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import Swal from 'sweetalert2';
 
 const FoodDetails = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation(); // To get the current URL
     const food = useLoaderData();
     const { foodName, imageUrl, quantity, pickupLocation, expirationDate, notes, donator, status, _id } = food;
 
-    
     const [isModalOpen, setModalOpen] = useState(false);
     const [additionalNotes, setAdditionalNotes] = useState("");
 
+    const openModal = () => {
+        // Check if user is logged in
+        if (!user) {
+            // Redirect to login page, passing the current URL as state
+            navigate("/login", { state: { from: location.pathname } });
+            return;
+        }
+        setModalOpen(true);
+    };
 
-    const openModal = () => setModalOpen(true);
-
-    
     const closeModal = () => setModalOpen(false);
 
     // Handle Request Submission
@@ -36,7 +41,7 @@ const FoodDetails = () => {
             pickupLocation,
             expirationDate,
             additionalNotes,
-            status: "requested", 
+            status: "requested",
         };
 
         try {
@@ -59,13 +64,17 @@ const FoodDetails = () => {
                 icon: "success",
                 title: "Request submitted successfully",
                 showConfirmButton: false,
-                timer: 1500
-              });
+                timer: 1500,
+            });
             closeModal();
-            navigate("/foods"); 
+            navigate("/foods");
         } catch (error) {
             console.error("Error submitting request:", error);
-            alert("Failed to submit request. Please try again.");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Failed to submit request. Please try again.",
+            });
         }
     };
 
@@ -112,9 +121,9 @@ const FoodDetails = () => {
             </div>
 
             {/* Modal */}
-            {isModalOpen && (
-                <div className="fixed  inset-0 bg-black bg-opacity-50 flex justify-center items-center mt-8 md:mb-28">
-                    <div className=" food-card p-6 rounded shadow-lg w-96">
+            {isModalOpen && user && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center mt-8 md:mb-28">
+                    <div className="food-card p-6 rounded shadow-lg w-96">
                         <h2 className="text-xl font-semibold mb-4">Request Food</h2>
                         <div className="space-y-2">
                             <p><strong>Food Name:</strong> {foodName}</p>
