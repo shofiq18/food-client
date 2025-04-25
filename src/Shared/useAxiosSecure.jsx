@@ -6,7 +6,7 @@ import { AuthContext } from '../context/AuthProvider';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000', // Use local backend for testing
+    baseURL: 'https://b10a11-server-side-shofiq18.vercel.app', // Use local backend for testing
     withCredentials: true,
 });
 

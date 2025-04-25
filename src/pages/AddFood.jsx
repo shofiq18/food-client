@@ -24,7 +24,7 @@ const AddFood = () => {
     // Mutation for adding food
     const addFoodMutation = useMutation({
         mutationFn: async (foodData) => {
-            const response = await fetch("http://localhost:5000/add-food", { // Fixed URL
+            const response = await fetch("https://b10a11-server-side-shofiq18.vercel.app/add-food", { // Fixed URL
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -48,14 +48,14 @@ const FoodDetails = () => {
 
         try {
             // Update food status in the database
-            await fetch(`http://localhost:5000/foods/${_id}`, {
+            await fetch(`https://b10a11-server-side-shofiq18.vercel.app/foods/${_id}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: "requested" }),
             });
 
             // Add to My Requests collection
-            await fetch("http://localhost:5000/my-requests", {
+            await fetch("https://b10a11-server-side-shofiq18.vercel.app/my-requests", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestData),

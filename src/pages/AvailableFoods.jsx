@@ -15,7 +15,7 @@ const AvailableFoods = () => {
   const fetchFoods = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/available-foods"
+        "https://b10a11-server-side-shofiq18.vercel.app/available-foods"
       );
       const data = await response.json();
       setFoods(data);
