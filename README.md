@@ -1,8 +1,10 @@
 # 🍽️ FoodBridge
 
 <div align="center">
-  <img src="https://i.ibb.co.com/gPQhG8T/hgfhfghfhfdh.jp" />
+  <img src="https://i.ibb.co/gPQhG8T/hgfhfghfhfdh.jpg" />
 </div>
+
+
 
 ## Overview 
 
