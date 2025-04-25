@@ -17,7 +17,7 @@ const FoodDetails = () => {
     const openModal = () => {
         // Check if user is logged in
         if (!user) {
-            // Redirect to login page, passing the current URL as state
+            // Redirect to login page, passing the current URL as state from authentication
             navigate("/login", { state: { from: location.pathname } });
             return;
         }
